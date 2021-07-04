@@ -1,0 +1,10 @@
+{
+    "isProduction": true,
+    "database": {
+        "host": "eu-cdbr-west-01.cleardb.com",
+        "user": "bb2eb29625393a",
+        "password": "3cbc5e69",
+        "name": "heroku_5316602a461cd19"
+    },
+    "jwtKey": "ThereIsNoPlaceLikeHome"
+}
