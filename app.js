@@ -1,5 +1,5 @@
 global.config = require(process.env.NODE_ENV === "production" ? "./config-prod.json" : "./config-dev.json");
-
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
