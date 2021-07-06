@@ -24,7 +24,7 @@ class UserModel {
 
     // Create put validation schema only once as a private (#) static object:
     static #putValidationSchema = Joi.object({
-        userId: Joi.number().optional().integer().positive(),
+        userId: Joi.number().optional().integer(),
         uuid: Joi.string().optional(),
         firstName: Joi.string().required().min(2).max(100),
         lastName: Joi.string().required().min(2).max(100),

@@ -25,7 +25,7 @@ class VacationModel {
 
     // Create put validation schema only once as a private (#) static object:
     static #putValidationSchema = Joi.object({
-        vacationId: Joi.number().optional().integer().positive(),
+        vacationId: Joi.number().optional().integer(),
         destination: Joi.string().required().min(2).max(100),
         startDate: Joi.string().required().min(2).max(100),
         endDate: Joi.string().required().min(2).max(100),
