@@ -20,9 +20,9 @@ const options = {
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 }
 
+server.use(sanitize);
 server.use(cors(options));
 
-// server.use(sanitize);
 
 // Handle json body object so request.body will contain the json in the body:
 server.use(express.json());
@@ -54,7 +54,7 @@ server.use("*", (request, response) => {
 
 // Upload server to the air:
 const port = process.env.PORT || 3001;
-const listener = server.listen(port, () => console.log("Listening on port $}"));
+const listener = server.listen(port, () => console.log(`Listening on port ${port}`));
 vacationsSocketLogic.start(listener);
 
 

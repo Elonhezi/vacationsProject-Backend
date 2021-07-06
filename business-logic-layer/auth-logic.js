@@ -13,8 +13,9 @@ async function registerAsync(user) {
     user.password = cryptoHelper.hash(user.password); // Hash password
     user.uuid = uuid.v4();  // Create uuid 
     const sql = `INSERT INTO users VALUES (DEFAULT ,'${user.uuid}' , '${user.firstName}', '${user.lastName}', '${user.userName}', '${user.password}', false)`;
-    await dal.executeAsync(sql);
+    const info = await dal.executeAsync(sql);
     delete user.password; // Delete password so it won't returned to the frontend
+    user.isAdmin = 0;
     user.token = jwtHelper.getNewToken(user); // Generate new token
     return user;
 }

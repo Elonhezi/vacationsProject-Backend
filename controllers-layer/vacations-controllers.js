@@ -34,7 +34,7 @@ router.get("/:id", verifyLoggedIn , async (request, response)=> {
 });
 
 // GET http://localhost:3001/api/vacations/order-by/:uuid
-router.get("/order-by/:uuid", async (request, response)=> {
+router.get("/order-by/:uuid", verifyLoggedIn, async (request, response)=> {
     try {
         const uuid = request.params.uuid; // Data:
         // Get data about specific user:

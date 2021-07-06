@@ -2,7 +2,10 @@ const express = require("express");
 const followersLogic = require("../business-logic-layer/followers-logic");
 const usersLogic = require("../business-logic-layer/users-logic");
 const errorHelper = require("../helpers/errors-helper");
+const verifyLoggedIn = require("../middleware/verify-logged-in");
+
 const router = express.Router();
+router.use(verifyLoggedIn);
 
 // get all details about vacation of all users:
 // GET http://localhost:3001/api/followers

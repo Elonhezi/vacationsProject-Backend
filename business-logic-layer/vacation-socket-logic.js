@@ -9,28 +9,22 @@
       socketsManager = io(listener, { cors: { origin: "http://localhost:3000" } });  
       // Listen to any client connection: 
       socketsManager.sockets.on("connection", socket => {
-
           console.log("One client has been connected.");
-
           socket.on("disconnect", () => {
               console.log("One client disconnect.");
           });
   
           socket.on("added-vacation-from-client", addedVacation => {
-              console.log("Client added vacation ");
               socketsManager.sockets.emit("added-vacation-from-server", addedVacation);
           });
 
           socket.on("updated-vacation-from-client", updatedVacation => {
-              console.log("Client sent update vacation");
               socketsManager.sockets.emit("updated-vacation-from-server", updatedVacation);
           });
 
           socket.on("deleted-vacation-from-client", deletedVacation => {
-              console.log("Client sent deleted vacation ");
               socketsManager.sockets.emit("deleted-vacation-from-server", deletedVacation);
           });
-  
       });
   }
   
